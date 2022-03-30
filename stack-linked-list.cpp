@@ -21,15 +21,16 @@ void push(int x)
 
 void pop() 
 {
+    node tmp;
     if (top == NULL)
     {
-        cout << "Stack Empty";
+        cout << "Stack Empty" << endl;
     }
     else
     {
-        node tmp = top;
+        tmp = top;
         top = top -> next;
-        delete(tmp);
+        free(tmp);
     }
 }
 
@@ -49,7 +50,7 @@ void displayTop()
     }
     else
     {
-        cout << "Value is top: " << top -> data;
+        cout << "Value is top: " << top -> data << endl;
     }
 }
 
@@ -64,26 +65,30 @@ void chuyen_co_so(int cosocandoi, int hethapphan)
     
 }
 
+//doi co so 16 dang bi loi
+
 void display()
 {
     int x = 0;
-    while (top != NULL)
+    node tmp;
+    tmp = top;
+    while (tmp != NULL)
     {
         if (x < 10)
         {
-            cout << top -> data << " ";
+            cout << tmp -> data << " ";
 
         }
         else{
-            if (top -> data > 10)
+            if (tmp -> data > 10)
             {
-                cout << char(top -> data + 55) << " ";
+                cout << char(tmp -> data + 55) << " ";
             }else{
-                cout << top -> data;
+                cout << tmp -> data;
             }
         }
         
-        top = top -> next;
+        tmp = tmp -> next;
     }
     cout << endl;
 }
